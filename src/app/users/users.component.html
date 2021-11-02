@@ -1,0 +1,31 @@
+<div class="my-2">
+    <label for="">User Name</label>
+    <input type="text" class="form-control" (input)="onUpdateUser($event)">
+    <input type="text" class="form-control" [(ngModel)]="userName">
+    <div>{{userName}}</div>
+</div>
+<h3>kandramohan</h3>
+
+<button class="btn btn-primary" [disabled]="!allowNewuser" (click)= "changeUserCreatedStatus()">Add User</button>
+
+<div *ngIf="isUserCreated; else noUser">User is created and the Username is {{userName}}</div>
+<br>
+<ng-template #noUser>No user is created</ng-template>
+
+<app-user></app-user>
+<app-user></app-user>
+
+<br>
+<br>
+<div appHighlightText>
+    Please add the background color
+</div>
+
+<div appRendererhighlight [defaultColor] = "'blue'" [highlightColor]= "'pink'"> Align the text into center and make the color into green</div>
+
+<button class="btn btn-primary" (click)="isAvailable = !isAvailable">Toggle condition</button>
+
+<div *ngIf="isAvailable">show the div if it is true</div>
+<ng-template [ngIf] = "isAvailable"> show the Div isAvailable is true</ng-template>
+
+<div *appAlternateIf="isAvailable"> This condition enables with custom Directive</div>
